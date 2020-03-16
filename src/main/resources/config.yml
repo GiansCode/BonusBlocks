@@ -1,0 +1,28 @@
+update-top-every: '5m'
+
+change-block-range:
+  min: '5m'
+  max: '15m'
+  amount: 1
+  
+storage:
+  type: 'YAML' #YAML or MySQL
+  mysql:
+    hostname: 'localhost'
+    username: 'root'
+    password: ''
+    database: 'bonusblocks'
+    port: 3306
+
+bonus-blocks:
+  GOLD_ORE:
+    change: 100
+    min-rewards: 1
+    max-rewards: 2
+    particle: ''
+    hologram:
+      - '&cBonus Block'
+      - '&cBreak this for rewards'
+    rewards:
+      - '[CONSOLE] give %player% dirt 1'
+      - '[CONSOLE] give %player% diamond 1'

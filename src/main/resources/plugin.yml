@@ -1,0 +1,9 @@
+name: BonusBlocks
+author: xQuickGlare
+version: 1.0
+depend: [HolographicDisplays, PlaceholderAPI]
+main: io.alerium.bonusblocks.BonusBlocksPlugin
+api-version: 1.15
+commands:
+  bonusblocks:
+    description: The main command of this plugin

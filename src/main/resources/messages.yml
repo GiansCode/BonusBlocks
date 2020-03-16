@@ -1,0 +1,20 @@
+commands:
+  invalidCommand: '&cCommand not found'
+  noPermission: '&cYou don''t have the permission for execute this command'
+  onlyPlayer: '&cThis command can be executed only by a Player'
+  help:
+    - '&a/bonusblocks add'
+    - '&a/bonusblocks remove'
+    - '&a/bonusblocks list'
+  add:
+    alreadyBonusBlock: '&cThis block is already a bonus block'
+    noBonusBlockType: '&cThis block doesn''t have the right block type'
+    added: '&aBonus block added'
+  remove:
+    bonusBlockNotFound: '&cThis block isn''t a bonus block'
+    removed: '&aBonus block removed'
+  list:
+    usage: '&cUsage: /bonusblocks list <radius>'
+    radiusNotValid: '&cRadius is not valid'
+    noBlocksFound: '&cThere aren''t bonus blocks near you'
+    blockFound: '&a%x %y %z'
