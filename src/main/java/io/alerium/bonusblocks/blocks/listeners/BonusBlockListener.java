@@ -2,6 +2,8 @@ package io.alerium.bonusblocks.blocks.listeners;
 
 import io.alerium.bonusblocks.BonusBlocksPlugin;
 import io.alerium.bonusblocks.blocks.BonusBlock;
+import io.alerium.bonusblocks.blocks.events.BonusBlockBreakEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,6 +24,12 @@ public class BonusBlockListener implements Listener {
         
         event.setCancelled(true);
         Player player = event.getPlayer();
+
+        BonusBlockBreakEvent breakEvent = new BonusBlockBreakEvent(player, bonusBlock, block);
+        Bukkit.getPluginManager().callEvent(breakEvent);
+        if (breakEvent.isCancelled())
+            return;
+        
         bonusBlock.executeBreak(player);
         plugin.getPlayerDataManager().getPlayer(player.getUniqueId()).incrementBrokenBlocks(1);
     }

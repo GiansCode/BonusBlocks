@@ -16,6 +16,7 @@ storage:
 
 bonus-blocks:
   GOLD_ORE:
+    inactiveMaterial: 'STONE'
     change: 100
     min-rewards: 1
     max-rewards: 2

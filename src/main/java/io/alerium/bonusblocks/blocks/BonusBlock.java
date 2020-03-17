@@ -19,6 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class BonusBlock {
     
     @Getter private final Material material;
+    @Getter private final Material inactiveMaterial;
     @Getter private final int spawnChange;
     
     private final int minRewards;
@@ -64,7 +65,7 @@ public class BonusBlock {
 
         spawnedHologram.delete();
         
-        spawnedLocation.getBlock().setType(Material.BEDROCK);
+        spawnedLocation.getBlock().setType(inactiveMaterial);
         spawnedLocation = null;
         return true;
     }

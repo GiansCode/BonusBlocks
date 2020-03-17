@@ -38,7 +38,7 @@ public class AddBlockCommand extends SubCommand {
             return;
         }
         
-        block.setType(Material.BEDROCK);
+        block.setType(bonusBlock.getInactiveMaterial());
         
         List<Location> locations = bonusBlock.getLocations();
         locations.add(block.getLocation());

@@ -105,6 +105,13 @@ public class BonusBlockManager {
             }
 
             ConfigurationSection section = blocksSection.getConfigurationSection(materialName);
+            
+            Optional<Material> inactiveMaterial = Enums.getIfPresent(Material.class, section.getString("inactiveMaterial"));
+            if (!inactiveMaterial.isPresent()) {
+                plugin.getLogger().warning(materialName + " block was skipped because the inactiveMaterial is not valid.");
+                continue;
+            }
+            
             int spawnChange = section.getInt("change");
             int minRewards = section.getInt("min-rewards");
             int maxRewards = section.getInt("max-rewards");
@@ -113,7 +120,7 @@ public class BonusBlockManager {
             List<String> rewards = section.getStringList("rewards");
             List<Location> locations = plugin.getBlocksConfig().getLocationList(materialName);
 
-            blocks.add(new BonusBlock(material.get(), spawnChange, minRewards, maxRewards, particle.orNull(), hologram, rewards, locations));
+            blocks.add(new BonusBlock(material.get(), inactiveMaterial.get(), spawnChange, minRewards, maxRewards, particle.orNull(), hologram, rewards, locations));
             plugin.getLogger().info("Loaded " + locations.size() + " bonus blocks of " + materialName + " type.");
         }
         
