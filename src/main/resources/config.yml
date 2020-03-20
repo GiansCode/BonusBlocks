@@ -25,5 +25,5 @@ bonus-blocks:
       - '&cBonus Block'
       - '&cBreak this for rewards'
     rewards:
-      - '[CONSOLE] give %player% dirt 1'
-      - '[CONSOLE] give %player% diamond 1'
+      - '[CONSOLECOMMAND] give %player_name% dirt 1'
+      - '[CONSOLECOMMAND] give %player_name% diamond 1'

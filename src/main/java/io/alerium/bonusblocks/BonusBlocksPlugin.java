@@ -12,6 +12,7 @@ import io.alerium.bonusblocks.playerdata.PlayerDataManager;
 import io.alerium.bonusblocks.playerdata.listeners.PlayerDataListener;
 import io.alerium.bonusblocks.utils.commands.Command;
 import io.alerium.bonusblocks.utils.configuration.YAMLConfiguration;
+import io.samdev.actionutil.ActionUtil;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
@@ -30,6 +31,8 @@ public class BonusBlocksPlugin extends JavaPlugin {
     @Getter private PlayerDataManager playerDataManager;
     @Getter private BonusBlockManager bonusBlockManager;
     
+    @Getter private ActionUtil actionUtil;
+    
     @Override
     public void onEnable() {
         instance = this;
@@ -40,6 +43,8 @@ public class BonusBlocksPlugin extends JavaPlugin {
         registerListeners();
         registerCommands();
         registerIntegrations();
+        
+        actionUtil = ActionUtil.init(this);
         
         getLogger().info("Plugin enabled in " + (System.currentTimeMillis()-time) + "ms.");
     }

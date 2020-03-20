@@ -3,7 +3,6 @@ package io.alerium.bonusblocks.blocks;
 import com.gmail.filoghost.holographicdisplays.api.Hologram;
 import com.gmail.filoghost.holographicdisplays.api.HologramsAPI;
 import io.alerium.bonusblocks.BonusBlocksPlugin;
-import io.alerium.bonusblocks.utils.CommandUtil;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.ChatColor;
@@ -109,7 +108,7 @@ public class BonusBlock {
      */
     private void executeRandomReward(Player player) {
         int i = ThreadLocalRandom.current().nextInt(rewards.size());
-        CommandUtil.executeCommand(rewards.get(i), player);
+        BonusBlocksPlugin.getInstance().getActionUtil().executeActions(player, rewards.get(i));
     }
     
 }

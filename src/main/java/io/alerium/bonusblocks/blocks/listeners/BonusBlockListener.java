@@ -16,7 +16,7 @@ public class BonusBlockListener implements Listener {
     private final BonusBlocksPlugin plugin = BonusBlocksPlugin.getInstance();
     
     @EventHandler
-    public void onSpawnerBlockbreak(BlockBreakEvent event) {
+    public void onSpawnedBlockBreak(BlockBreakEvent event) {
         Block block = event.getBlock();
         BonusBlock bonusBlock = plugin.getBonusBlockManager().getBonusBlockBySpawned(block.getLocation());
         if (bonusBlock == null)
