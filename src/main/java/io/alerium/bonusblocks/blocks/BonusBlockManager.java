@@ -29,16 +29,25 @@ public class BonusBlockManager {
      * This method enables the BonusBlockManager
      */
     public void enable() {
-        minTime = (int) new TimeAPI(plugin.getConfiguration().getConfig().getString("change-block-range.min")).getMilliseconds();
-        maxTime = (int) new TimeAPI(plugin.getConfiguration().getConfig().getString("change-block-range.max")).getMilliseconds();
-        amount = plugin.getConfiguration().getConfig().getInt("change-block-range.amount");
+        reload();
         
-        loadBlocks();
-
         new ParticleTask().runTaskTimer(plugin, 10, 10);
         new BlockSpawnTask().runTaskTimer(plugin, 20*60, 20*60);
     }
 
+    /**
+     * This plugin reloads all the information from the config
+     */
+    public void reload() {
+        minTime = (int) new TimeAPI(plugin.getConfiguration().getConfig().getString("change-block-range.min")).getMilliseconds();
+        maxTime = (int) new TimeAPI(plugin.getConfiguration().getConfig().getString("change-block-range.max")).getMilliseconds();
+        amount = plugin.getConfiguration().getConfig().getInt("change-block-range.amount");
+
+        despawnAll();
+        blocks.clear();
+        loadBlocks();
+    }
+    
     /**
      * This method despawns all the BonusBlock(s)
      */

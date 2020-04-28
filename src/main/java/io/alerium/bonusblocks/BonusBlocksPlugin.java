@@ -6,6 +6,7 @@ import io.alerium.bonusblocks.blocks.BonusBlockManager;
 import io.alerium.bonusblocks.blocks.listeners.BonusBlockListener;
 import io.alerium.bonusblocks.commands.AddBlockCommand;
 import io.alerium.bonusblocks.commands.ListCommand;
+import io.alerium.bonusblocks.commands.ReloadCommand;
 import io.alerium.bonusblocks.commands.RemoveBlockCommand;
 import io.alerium.bonusblocks.integrations.PlaceholderAPI;
 import io.alerium.bonusblocks.playerdata.PlayerDataManager;
@@ -78,7 +79,12 @@ public class BonusBlocksPlugin extends JavaPlugin {
     }
     
     private void registerCommands() {
-        getCommand("bonusblocks").setExecutor(new Command(messages.getMessage("commands.help").format(), Arrays.asList(new ListCommand(), new AddBlockCommand(), new RemoveBlockCommand())));
+        getCommand("bonusblocks").setExecutor(new Command(Arrays.asList(
+                new ListCommand(),
+                new AddBlockCommand(),
+                new RemoveBlockCommand(),
+                new ReloadCommand()
+        )));
     }
     
     private void registerIntegrations() {

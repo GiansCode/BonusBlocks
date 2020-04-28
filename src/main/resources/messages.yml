@@ -6,6 +6,7 @@ commands:
     - '&a/bonusblocks add'
     - '&a/bonusblocks remove'
     - '&a/bonusblocks list'
+    - '&a/bonusblocks reload'
   add:
     alreadyBonusBlock: '&cThis block is already a bonus block'
     noBonusBlockType: '&cThis block doesn''t have the right block type'
@@ -18,3 +19,4 @@ commands:
     radiusNotValid: '&cRadius is not valid'
     noBlocksFound: '&cThere aren''t bonus blocks near you'
     blockFound: '&a%x %y %z'
+  reload: '&aPlugin reloaded'

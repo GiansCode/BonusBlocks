@@ -1,7 +1,6 @@
 package io.alerium.bonusblocks.utils.commands;
 
 import io.alerium.bonusblocks.BonusBlocksPlugin;
-import io.alerium.bonusblocks.utils.configuration.Message;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,13 +14,12 @@ public class Command implements CommandExecutor {
     
     private final BonusBlocksPlugin plugin = BonusBlocksPlugin.getInstance();
     
-    private final Message helpMessage;
     private final List<SubCommand> commands;
     
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command command, String label, String[] args) {
         if (args.length == 0) {
-            helpMessage.send(sender);
+            plugin.getMessages().getMessage("commands.help").format().send(sender);
             return true;
         }
         
